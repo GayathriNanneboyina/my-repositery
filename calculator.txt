@@ -1,0 +1,218 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace calculator
+{
+    public partial class Calc : Form
+    {
+        string stra, strb, strc;
+        double douc;
+        int inta, intb, intc, intd, inte, intf,intg;
+        char[] chara = new char[50];
+         string[] strnum = new string[50];
+        string[] strop = new string[1];
+        public Calc()
+        {
+            InitializeComponent();
+        }
+
+        private void btnOne_Click(object sender, EventArgs e)
+        {
+
+            lblDisplay.Text = lblDisplay.Text + "1";
+
+        }
+
+        private void btnTwo_Click(object sender, EventArgs e)
+        {
+
+            lblDisplay.Text = lblDisplay.Text + "2";
+        }
+
+        private void btnPlu_Click(object sender, EventArgs e)
+        {
+            if (strnum[0] == null)
+            {
+                strnum[0] = lblDisplay.Text;
+                lblDisplay.Text = null;
+            }
+            else
+            {
+                inte = Convert.ToInt32(strnum[0]);
+                intf = Convert.ToInt32(lblDisplay.Text);
+                intg = inte + intf;
+                strnum[0] = intg.ToString();
+                
+                lblDisplay.Text = null;
+            }
+            strop[0] = "+";
+
+
+        }
+
+        private void btnEqu_Click(object sender, EventArgs e)
+        {
+            
+            strnum[1] = lblDisplay.Text;
+            inta = Convert.ToInt32(strnum[0]);
+            intb = Convert.ToInt32(strnum[1]);
+            
+            switch (strop[0])
+            {
+                case "+":
+                    intc = inta + intb;
+                    strc = intc.ToString();
+                    lblDisplay.Text = strc;
+                    break;
+                case "-":
+                    intc = inta - intb;
+                    strc = intc.ToString();
+                    lblDisplay.Text = strc;
+                    break;
+                case "/":
+                    intc = inta / intb;
+                    strc = intc.ToString();
+                    lblDisplay.Text = strc;
+                    break;
+                case "*":
+                    intc = inta * intb;
+                    strc = intc.ToString();
+                    lblDisplay.Text = strc;
+                    break;
+                //case "s":
+                //    douc = Math.Sqrt(inta);
+                //    strc = douc.ToString();
+                //    lblDisplay.Text = strc;
+
+                    //break;
+                   
+                     
+
+            }
+             strnum[0] = null;
+             strnum[1] = null;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+
+            strnum[0] = lblDisplay.Text;
+            lblDisplay.Text = null;
+
+            strop[0] = "-";
+        }
+
+        private void btnDiv_Click(object sender, EventArgs e)
+        {
+
+            strnum[0] = lblDisplay.Text;
+            lblDisplay.Text = null;
+
+            strop[0] = "/";
+        }
+
+        private void btnMul_Click(object sender, EventArgs e)
+        {
+
+            strnum[0] = lblDisplay.Text;
+            lblDisplay.Text = null;
+
+            strop[0] = "*";
+        }
+
+        private void btnPer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClr_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = string.Empty;
+        }
+
+        private void btnBs_Click(object sender, EventArgs e)
+        {
+            
+            lblDisplay.Text = lblDisplay.Text.Remove(lblDisplay.Text.Length - 1);
+        }
+
+        private void butRec_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThr_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = lblDisplay.Text + "3";
+        }
+
+        private void btnfou_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = lblDisplay.Text + "4";
+        }
+
+        private void btnFiv_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = lblDisplay.Text + "5";
+        }
+
+        private void btnSix_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = lblDisplay.Text + "6";
+        }
+
+        private void btnsev_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = lblDisplay.Text + "7";
+        }
+
+        private void btnEig_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = lblDisplay.Text + "8";
+        }
+
+        private void btnNin_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = lblDisplay.Text + "9";
+        }
+
+        private void btnZer_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = lblDisplay.Text + "0";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            strnum[0] = lblDisplay.Text;
+            inta = Convert.ToInt32(strnum[0]);
+            douc = Math.Sqrt(inta);
+            intb = Convert.ToInt32(douc);
+            strc = intb.ToString();
+            lblDisplay.Text = strc;
+
+            
+            //lblDisplay.Text = null;
+
+            //strop[0] = "s";
+        }
+
+        private void btnCe_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = string.Empty;
+            string[] strnum = null; 
+        }
+
+    }
+}
